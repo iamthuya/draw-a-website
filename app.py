@@ -35,12 +35,12 @@ vertexai.init(project="duet-ai-cok", location="us-central1")
 
 # Define a function to generate an image from a wireframe and a prompt.
 def generate(wireframe, model, prompt):
-    '''Generates an image from a wireframe and a prompt.
+    '''Generates the html code response from a wireframe and a prompt.
     Args:
     wireframe: The wireframe image.
     model: The generative model to use.
     prompt: The prompt to use.
-    Returns:The generated image.
+    Returns:The generated response.
     '''
     # Create a GenerativeModel object.
     model = GenerativeModel(model)
@@ -51,7 +51,7 @@ def generate(wireframe, model, prompt):
         prompt
     ]
     
-    # Generate the image.
+    # Generate the response.
     responses = model.generate_content(
         contents=contents,
         stream=True,
@@ -62,7 +62,7 @@ def generate(wireframe, model, prompt):
     for res in responses:
         response += res.text.strip()
     
-    # Return the generated image.
+    # Return the generated response.
     return response
 
 # Define the home page route.
