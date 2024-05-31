@@ -15,7 +15,7 @@ from vertexai.generative_models import (
 
 # Initialize the Flask app.
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # limit to 16 MB per image
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # limit upload size to 16 MB
 
 # Initialize the Vertex AI client library. 
 # Replace "YOUR_PROJECT_ID" before running
@@ -23,13 +23,14 @@ vertexai.init(project="YOUR_PROJECT_ID", location="us-central1")
 
 # Define a function to generate response from a wireframe and a prompt.
 def generate(wireframe, model, prompt):
-    '''Generates a response from a wireframe and a prompt.
+    """
+    Generates a response from a wireframe and a prompt.
     Args:
-    wireframe: The wireframe image.
-    model: The generative model to use.
-    prompt: The prompt to use.
-    Returns:The generated response.
-    '''
+        wireframe: The wireframe image.
+        model: The generative model to use.
+        prompt: The prompt to use.
+        Returns:The generated response.
+    """
     # Create a GenerativeModel object.
     model = GenerativeModel(model)
 
@@ -56,17 +57,21 @@ def generate(wireframe, model, prompt):
 # Define the home page route.
 @app.route('/', methods=['GET'])
 def index():
-    '''Renders the home page.
-    Returns:The rendered template.
-    '''
+    """
+    Renders the home page.
+    Returns:
+        The rendered template.
+    """
     return render_template('index.html')
 
 # Define the response route.
 @app.route('/response', methods=['GET', 'POST'])
 def response():
-    '''Handles the response to the user's input.
-    Returns:The rendered template.
-    '''
+    """
+    Handles the user's input and send it over to the model.
+    Returns:
+        The response from the model.
+    """
     # If the request is a POST request, process the form data.
     if request.method == 'POST':
         # Get the uploaded image from the request.
@@ -92,7 +97,7 @@ def response():
         return redirect('/')
 
 # Run the app.
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Get the server port from the environment variables.
     server_port = os.environ.get('PORT', '8080')
 
