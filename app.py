@@ -16,7 +16,7 @@ from vertexai.generative_models import (
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB per image
 
-vertexai.init(project="your-project-id", location="us-central1")
+vertexai.init(project="thuya-next-demos", location="us-central1")
 
 
 def generate(wireframe, model, prompt):
@@ -52,10 +52,10 @@ def response():
 
         try:
             response = generate(wireframe, model, prompt)
-            return render_template('response.html', response=response)
+            response = response.replace("```html", "").replace("```", "").strip()
+            return response
         except ValueError as e:
             raise e
-        
     else:
         return redirect('/')
 

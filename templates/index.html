@@ -43,14 +43,14 @@
 <body>
     <div class="container">
         <h2>Draw a Website</h2>
-        <form action="/response" method="post" enctype="multipart/form-data">
+        <form action="/response" target="_blank" method="post" enctype="multipart/form-data">
             <input type="file" id="image-upload" name="image-upload" accept=".png, .jpg, .jpeg">
-            <textarea name="prompt" placeholder="Write your prompt here. E.g.'Convert this drawing into an html page'"></textarea>
             <select name="model">
-                <option value="gemini-experimental">Gemini Experimental</option>
-                <option value="gemini-1.5-pro-preview-0409">Gemini 1.5 Pro Preview</option>
+                <option value="gemini-1.5-flash-001">Gemini 1.5 Flash</option>
+                <option value="gemini-1.5-pro-001">Gemini 1.5 Pro</option>
                 <option value="gemini-1.0-pro-vision-001">Gemini 1.0 Pro Vision</option>
                 </select>
+            <textarea name="prompt" placeholder="Write your prompt here. For example: 'Convert this drawing into an html page'">Convert this drawing into an html page</textarea>
             <button type="submit">Submit</button>
         </form>
     </div>
