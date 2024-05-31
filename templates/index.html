@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Draw a Website</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ensure form is centered vertically */
-            background-color: #f4f4f4;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        input[type="file"], textarea, select {
-            width: 100%;
-            padding:10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; 
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
+   <title>Draw a Website</title>
+   <style>
+       body {
+           font-family: sans-serif;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           min-height: 100vh; /* Ensure form is centered vertically */
+           background-color: #f4f4f4;
+       }
+       .container {
+           background-color: white;
+           padding: 30px;
+           border-radius: 8px;
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+           text-align: center;
+       }
+       h2 {
+           text-align: center;
+           margin-bottom: 20px;
+       }
+       input[type="file"], textarea, select {
+           width: 100%;
+           padding:10px;
+           margin-bottom: 15px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           box-sizing: border-box;
+       }
+       button {
+           background-color: #4CAF50;
+           color: white;
+           padding: 12px 20px;
+           border: none;
+           border-radius: 4px;
+           cursor: pointer;
+       }
+   </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Draw a Website</h2>
-        <form action="/response" target="_blank" method="post" enctype="multipart/form-data">
-            <input type="file" id="image-upload" name="image-upload" accept=".png, .jpg, .jpeg">
-            <select name="model">
-                <option value="gemini-1.5-flash-001">Gemini 1.5 Flash</option>
-                <option value="gemini-1.5-pro-001">Gemini 1.5 Pro</option>
-                <option value="gemini-1.0-pro-vision-001">Gemini 1.0 Pro Vision</option>
-                </select>
-            <textarea name="prompt" placeholder="Write your prompt here. For example: 'Convert this drawing into an html page'">Convert this drawing into an html page</textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+   <div class="container">
+       <h2>Draw a Website</h2>
+       <form action="/response" target="_blank" method="post" enctype="multipart/form-data">
+           <input type="file" id="image-upload" name="image-upload" accept=".png, .jpg, .jpeg">
+           <select name="model">
+               <option value="gemini-1.5-flash-001">Gemini 1.5 Flash</option>
+               <option value="gemini-1.5-pro-001">Gemini 1.5 Pro</option>
+               <option value="gemini-1.0-pro-vision-001">Gemini 1.0 Pro Vision</option>
+               </select>
+           <textarea name="prompt" placeholder="Write your prompt here. For example: 'Convert this drawing into an html page'">Convert this drawing into an html page</textarea>
+           <button type="submit">Submit</button>
+       </form>
+   </div>
 </body>
 </html>
